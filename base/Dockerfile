@@ -3,13 +3,13 @@ MAINTAINER luojimeng <luojimeng@advanpro.hk>
 
 
 ENV HADOOP_VERSION 2.7.7
-ENV HADOOP_URL https://www.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
-RUN set -x \
-    && curl -fSL "$HADOOP_URL" -o /tmp/hadoop.tar.gz \
-    && tar -xvf /tmp/hadoop.tar.gz -C /opt/ \
-    && rm /tmp/hadoop.tar.gz*
+# ENV HADOOP_URL https://www.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz
+# RUN set -x \
+#     && curl -fSL "$HADOOP_URL" -o /tmp/hadoop.tar.gz \
+#     && tar -xvf /tmp/hadoop.tar.gz -C /opt/ \
+#     && rm /tmp/hadoop.tar.gz*
 
-# COPY hadoop-${HADOOP_VERSION}.tar.gz /tmp/hadoop.tar.gz
+COPY hadoop-${HADOOP_VERSION}.tar.gz /tmp/hadoop.tar.gz
 
 RUN tar -xvf /tmp/hadoop.tar.gz -C /opt/ \
     && rm /tmp/hadoop.tar.gz*
